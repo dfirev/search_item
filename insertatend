@@ -1,0 +1,33 @@
+//insertatend
+#include<stdio.h>
+int insertatend(int arr[],int num,int n);
+void display(int arr[],int n);
+int main()
+{
+	int i,no;
+	int a[5]={0,1,2,3,5};
+	int n=sizeof (a)/sizeof (a[0]);
+	printf("before insertion\n");
+	display(a,n);
+	printf("enter a number to insert\n");
+	scanf("%d",&no);
+	insertatend(&a,no,n);
+	n=n+1;
+	display(&a,n);
+}
+int insertatend(int arr[],int num,int n)
+{
+	int i=0;
+	while(i<n)
+		i++;
+	arr[i]=num;
+	return *arr;
+}
+void display(int arr[],int n)
+{
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		printf("%d\t",arr[i]);
+	}printf("\n");
+}
