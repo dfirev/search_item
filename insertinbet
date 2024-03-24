@@ -1,0 +1,45 @@
+//insertinbet
+#include<stdio.h>
+int insertinbet(int arr[],int num,int size,int index);
+void display(int arr[],int end);
+int main()
+{
+	int i,no,index;
+	int a[5]={54,78,98,23,45};
+	int n=sizeof (a)/sizeof (a[0]);
+	printf("before insertion\n");
+	display(a,n);
+	printf("enter a number to insert");
+	scanf("%d",&no);
+	printf("enter index=");
+	scanf("%d",&index);
+	insertinbet(a,no,n,index);
+	
+}
+int insertinbet(int arr[],int num,int size,int index)
+{
+	int i;
+	if(index<size)
+	{
+		for(i=size;i>=index;i--)
+		{
+			arr[i+1]=arr[i];
+			arr[i]=num;
+		}
+		size=size+1;
+		display(arr,size);
+	}
+	else
+	{
+		printf("index not exist");
+	}
+}
+void display(int arr[],int size)
+{
+	int i;
+	for(i=0;i<size;i++)
+	{
+		printf("%d\t",arr[i]);
+	}
+	printf("\n");
+}
