@@ -1,0 +1,56 @@
+//delete in between array
+#include<stdio.h>
+int delinbet(int arr[],int n,int index);
+void display(int arr[],int n);
+int main()
+{
+	int i;
+	int num;
+	int arr[5]={0,1,2,3,4};
+	int n=sizeof(arr)/sizeof(arr[0]);
+	printf("before deletion\n");
+	display(arr,n);
+	int index;
+	printf("enter index");
+	scanf("%d",&index);
+//	printf("after deletion\n");
+	delinbet(&arr,n,index);
+//	n=n-1;
+	
+}
+int delinbet(int arr[],int n,int index)
+{
+	int i;
+	if(index<n)
+	{
+		for(i=0;i<n;i++)
+		{
+			if(i<index);
+	 		else if(i==index)
+			{
+				arr[i]=NULL;
+			}
+			else
+			{
+				arr[i-1]=arr[i];
+			}	
+		}
+		printf("after deletion");
+		arr[n-1]=NULL;
+		display(arr,n);
+	}
+	else
+	{
+		printf("index not exist");
+	}
+	
+}
+void display(int arr[],int n)
+{
+	int i;
+	for(i=0;i<n;i++)
+	{
+		printf("%d\t",arr[i]);
+	}
+	printf("\n");
+}
