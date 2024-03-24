@@ -1,0 +1,36 @@
+//insertatbeg
+#include<stdio.h>
+int insertatbeg(int arr[],int num,int n);
+void display(int arr[],int end);
+int main()
+{
+	int i,no;
+	int a[5]={54,78,98,23,45};
+	int n=sizeof (a)/sizeof (a[0]);
+	printf("before insertion\n");
+	display(a,n);
+	printf("\n");
+	printf("enter a number to insert");
+	scanf("%d",&no);
+	insertatbeg(&a,no,n);
+	n=n+1;
+	display(a,n);
+}
+int insertatbeg(int arr[],int num,int n)
+{
+	int i;
+	for(i=n;i>=0;i--)
+	{
+		arr[i+1]=arr[i];
+	}
+	arr[0]=num;
+	return *arr;
+}
+void display(int arr[],int end)
+{
+	int i;
+	for(i=0;i<end;i++)
+	{
+		printf("%d\t",arr[i]);
+	}
+}
