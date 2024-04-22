@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+	int data;
+	struct node *link;
+};
+void insertatend(struct node**,int);
+void display(struct node*);
+void count(struct node**,int);
+int main(){
+	struct node *start=NULL;
+	insertatend(&start,10);
+	insertatend(&start,20);
+	insertatend(&start,30);
+	insertatend(&start,10);
+	insertatend(&start,10);
+	display(start);
+	count(&start,0);
+}
+void insertatend(struct node **s,int item){
+	struct node *new,*p;
+	new=malloc(sizeof(struct node));
+	new->data=item;
+	new->link=NULL;
+	if(*s==NULL){
+		*s=new;
+	}
+	else{
+		p=*s;
+		while(p->link!=NULL){
+			p=p->link;
+		}
+		p->link=new;
+	}
+}
+void display(struct node *p){
+	if(p==NULL){
+		printf("list is empty");
+	}
+	else{
+		while(p!=NULL){
+			printf("%d\t",p->data);
+			p=p->link;
+		}
+	}
+}
+void count(struct node **s,int item){
+	struct node *p;
+	int count=0;
+	if(*s==NULL){
+		return;
+	}
+	else{
+		p=*s;
+		while(p!=NULL){
+			if(p->data==item){
+				count++;
+			}
+			else if(p->link==NULL && p->data !=item && count==0){
+				printf("\n%d not present\n",item);
+			}
+			p=p->link;
+		}
+	}
+	if(count>0){
+		printf("\n%d is present %d times\n",item,count);
+	}
+}
